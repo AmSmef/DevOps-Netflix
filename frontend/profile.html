@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <!-- Tailwind CSS via CDN -->
+  <link href="https://devops-bucket-amsmef.s3.amazonaws.com/frontend/dist/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 font-sans antialiased">
+  <!-- Navbar -->
+  <nav class="bg-gray-800 text-white">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-2">
+      <!-- Logo -->
+      <a href="#" class="text-3xl font-bold text-red-600">Netflix</a>
+
+      <!-- Navigation Links -->
+      <div class="flex space-x-4">
+        <a id="username" class="text-white font-bold">Profile</a>
+        <a href="history.html" class="hover:text-gray-400">History</a>
+        <a href="watchlist.html" class="hover:text-gray-400">Watchlist</a>
+      </div>
+
+      <!-- Logout Button -->
+      <a href="/frontend/login.html" id="logout-button" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">Logout</a>
+    </div>
+  </nav>
+
+
+  <form class="max-w-md mx-auto p-4 mt-6">   
+  <label for="default-search" class="mb-2 mt-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+  <div class="relative">
+      <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+      </div>
+      <input type="search" id="searchInput" class="bg-gray-800 w-full p-4 ps-10 text-sm text-white border border-gray-300 rounded-lg bg-gray-50 focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Search Videos..." required />
+      <button type="submit" id="searchButton" class="text-white absolute end-2.5 bottom-2.5 bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+  </div>
+  </form>
+
+
+  <div class="max-w-6xl mx-auto my-10 p-4 bg-gray-800 rounded-lg shadow-lg relative">
+    <!-- Header -->
+
+    <!-- Grid for Video Thumbnails -->
+    <div id= "videoGrid" class="grid grid-cols-4 gap-4">
+      <!-- Example Video Card -->
+      <div class="video-card bg-gray-700 rounded-lg overflow-hidden shadow hover:shadow-lg hover:scale-105 transition" data-title="Bosko And Honey (1932)">
+        <a href="/frontend/streaming.html?videoId=bosko">
+          <img src="https://manifest-files-amsmef.s3.eu-west-2.amazonaws.com/BoskoAndHoney/Bosko%26HoneyThumbnail.png" alt="Video 1 Thumbnail" class="w-full h-auto max-w-[200px] max-h-[150px] mx-auto">
+          <div class="p-4">
+            <h2 class="text-lg font-bold text-white">Bosko And Honey (1932)</h2>
+          </div>
+        </a>
+        <button class="add-to-watchlist bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mx-4 my-2" onclick="addToWatchlist('Bosko And Honey (1932)')">Add To Watchlist</button>
+      </div>
+
+      <div class="video-card bg-gray-700 rounded-lg overflow-hidden shadow hover:shadow-lg hover:scale-105 transition" data-title="Betty Boop: Minnie The Moocher">
+        <a href="/frontend/streaming.html?videoId=betty">
+          <img src="https://manifest-files-amsmef.s3.eu-west-2.amazonaws.com/BettyBoop/MinnieTheMoocherThumbnail.png" alt="Video 2 Thumbnail" class="w-full h-auto max-w-[200px] max-h-[150px] mx-auto">
+          <div class="p-4">
+            <h2 class="text-lg font-bold text-white">Betty Boop: Minnie The Moocher</h2>
+          </div>
+        </a>
+        <button class="add-to-watchlist bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mx-4 my-2" onclick="addToWatchlist('Betty Boop: Minnie The Moocher')">Add To Watchlist</button>
+      </div>
+
+      <div class="video-card bg-gray-700 rounded-lg overflow-hidden shadow hover:shadow-lg hover:scale-105 transition" data-title="Superman: Destruction Inc.">
+        <a href="/frontend/streaming.html?videoId=destruction">
+          <img src="https://manifest-files-amsmef.s3.eu-west-2.amazonaws.com/DestructionInc/DestructionIncThumbnail.png" alt="Video 3 Thumbnail" class="w-full h-auto max-w-[200px] max-h-[150px] mx-auto">
+          <div class="p-4">
+            <h2 class="text-lg font-bold text-white">Superman: Destruction Inc.</h2>
+          </div>
+        </a>
+        <button class="add-to-watchlist bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mx-4 my-2" onclick="addToWatchlist('Superman: Destruction Inc.')">Add To Watchlist</button>
+      </div>
+
+      <div class="video-card bg-gray-700 rounded-lg overflow-hidden shadow hover:shadow-lg hover:scale-105 transition" data-title="Popeye: Haul In One">
+        <a href="/frontend/streaming.html?videoId=haul">
+          <img src="https://manifest-files-amsmef.s3.eu-west-2.amazonaws.com/HaulInOne/HaulInOneThumbnail.png" alt="Video 4 Thumbnail" class="w-full h-auto max-w-[200px] max-h-[150px] mx-auto">
+          <div class="p-4">
+            <h2 class="text-lg font-bold text-white">Popeye: Haul In One</h2>
+          </div>
+        </a>
+        <button class="add-to-watchlist bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mx-4 my-2" onclick="addToWatchlist('Popeye: Haul In One')">Add To Watchlist</button>
+      </div>
+
+      <div class="video-card bg-gray-700 rounded-lg overflow-hidden shadow hover:shadow-lg hover:scale-105 transition" data-title="Popeye For President">
+        <a href="/frontend/streaming.html?videoId=popeye">
+          <img src="https://manifest-files-amsmef.s3.eu-west-2.amazonaws.com/PopeyeForPresident/PopeyeForPresidentThumbnail.png" alt="Video 5 Thumbnail" class="w-full h-auto max-w-[200px] max-h-[150px] mx-auto">
+          <div class="p-4">
+            <h2 class="text-lg font-bold text-white">Popeye For President</h2>
+          </div>
+        </a>
+        <button class="add-to-watchlist bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mx-4 my-2" onclick="addToWatchlist('Popeye For President')">Add To Watchlist</button>
+      </div>
+
+      <div class="video-card bg-gray-700 rounded-lg overflow-hidden shadow hover:shadow-lg hover:scale-105 transition" data-title="Superman: The Mechanical Monsters">
+        <a href="/frontend/streaming.html?videoId=superman">
+          <img src="https://manifest-files-amsmef.s3.eu-west-2.amazonaws.com/Superman/MechanicalMosntersThumbnail.png" alt="Video 6 Thumbnail" class="w-full h-auto max-w-[200px] max-h-[150px] mx-auto">
+          <div class="p-4">
+            <h2 class="text-lg font-bold text-white">Superman: The Mechanical Monsters</h2>
+          </div>
+        </a>
+        <button class="add-to-watchlist bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mx-4 my-2" onclick="addToWatchlist('Superman: The Mechanical Monsters')">Add To Watchlist</button>
+      </div>
+
+      <div class="video-card bg-gray-700 rounded-lg overflow-hidden shadow hover:scale-105 hover:shadow-lg transition" data-title="Tom & Jerry: Jolly Fish">
+        <a href="/frontend/streaming.html?videoId=tom">
+          <img src="https://manifest-files-amsmef.s3.eu-west-2.amazonaws.com/TomAndJerry/JollyFishThumbnail.png" alt="Video 7 Thumbnail" class="w-full h-auto max-w-[200px] max-h-[150px] mx-auto">
+          <div class="p-4">
+            <h2 class="text-lg font-bold text-white">Tom & Jerry: Jolly Fish</h2>
+          </div>
+        </a>
+        <button class="add-to-watchlist bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mx-4 my-2" onclick="addToWatchlist('Tom & Jerry: Jolly Fish')">Add To Watchlist</button>
+      </div>
+
+      <div class="video-card bg-gray-700 rounded-lg overflow-hidden shadow hover:shadow-lg hover:scale-105 transition" data-title="Woody Woodpecker: Pantry Panic">
+        <a href="/frontend/streaming.html?videoId=woody">
+          <img src="https://manifest-files-amsmef.s3.eu-west-2.amazonaws.com/WoodyWoodpecker/PantryPanicThumbnail.png" alt="Video 8 Thumbnail" class="w-full h-auto max-w-[200px] max-h-[150px] mx-auto">
+          <div class="p-4">
+            <h2 class="text-lg font-bold text-white">Woody Woodpecker: Pantry Panic</h2>
+          </div>
+        </a>
+        <button class="add-to-watchlist bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mx-4 my-2" onclick="addToWatchlist('Woody Woodpecker: Pantry Panic')">Add To Watchlist</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="profile.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>

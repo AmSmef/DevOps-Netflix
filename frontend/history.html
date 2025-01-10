@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History</title>
+  <link href="https://devops-bucket-amsmef.s3.amazonaws.com/frontend/dist/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 font-sans antialiased">
+  <!-- Navbar -->
+  <nav class="bg-gray-800 text-white">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-2">
+      <a href="#" class="text-3xl font-bold text-red-600">Netflix</a>
+      <div class="flex space-x-4">
+        <a href="profile.html" class="text-white font-bold">Profile</a>
+        <a href="history.html" class="text-white hover:text-gray-400">History</a>
+        <a href="watchlist.html" class="text-white hover:text-gray-400">Watchlist</a>
+      </div>
+      <a href="/frontend/login.html" id="logout-button" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">Logout</a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto my-10 p-4 bg-gray-800 rounded-lg shadow-lg">
+    <h1 class="text-white text-2xl font-bold mb-6">Your Watch History</h1>
+
+    <!-- Grid for History -->
+    <div id="historyGrid" class="grid grid-cols-4 gap-4">
+      <!-- Video Cards will be injected here -->
+    </div>
+  </div>
+
+  <script src="history.js"></script>
+</body>
+</html>
